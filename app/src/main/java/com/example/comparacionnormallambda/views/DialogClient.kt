@@ -1,7 +1,5 @@
 package com.example.comparacionnormallambda.views
 
-import com.example.comparacionnormallambda.logic.interfaces.ClientListener
-
 class DialogClient (
     private val onAdd: (Int, String, String, String) -> Unit,
     private val onUpdate: (Int, String, String, String) -> Unit,

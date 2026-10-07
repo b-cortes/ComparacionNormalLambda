@@ -1,17 +1,13 @@
 package com.example.comparacionnormallambda.logic
 
 import android.util.Log
-import androidx.room.util.copy
 import com.example.comparacionnormallambda.data.Client
 import com.example.comparacionnormallambda.data.Repository
 
-class Controller(map: Any.(Any?) -> Unit) {
+class Controller {
     private val TAG = "CRUD"
     private val clients: MutableList<Client> =
-        Repository.listClients.map {
-            val it = null
-            it.copy()
-        }.toMutableList()
+        Repository.listClients.map { it.copy() }.toMutableList()
     private var nextId = (clients.maxOfOrNull { it.id } ?: 99) + 1
 
     fun newId(): Int = nextId++
