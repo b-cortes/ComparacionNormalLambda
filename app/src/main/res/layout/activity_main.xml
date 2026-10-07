@@ -9,6 +9,7 @@
     <ImageButton android:id="@+id/btnDel" android:layout_width="56dp" android:layout_height="56dp"
         android:src="@android:drawable/ic_menu_delete" android:contentDescription="Borrar"/>
 
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+    <TextView android:id="@+id/tvClients"
+        android:layout_width="match_parent" android:layout_height="match_parent"
         android:gravity="center" android:text="CRUD de clientes - PMDM"/>
 </LinearLayout>
