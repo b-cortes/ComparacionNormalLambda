@@ -1,11 +1,25 @@
 package com.example.comparacionnormallambda.views
 
-class DialogClient (
-    private val onAdd: (Int, String, String, String) -> Unit,
-    private val onUpdate: (Int, String, String, String) -> Unit,
-    private val onDelete: (Int) -> Unit
+class DialogClient {
+    private lateinit var onAdd: (Int, String, String, String) -> Unit
+    private lateinit var onUpdate: (Int, String, String, String) -> Unit
+    private lateinit var onDelete: (Int) -> Unit
+
+    fun setListener(
+        onAdd: (Int, String, String, String) -> Unit,
+        onUpdate: (Int, String, String, String) -> Unit,
+        onDelete: (Int) -> Unit
     ) {
-        fun showAdd(id: Int) = onAdd(id, "Nuevo", "Pérez", "611000000")
-        fun showUpdate(id: Int) = onUpdate(id, "CAMBIADO", "Cambiado", "699999999")
-        fun showDelete(id: Int) = onDelete(id)
-   }
+        this.onAdd = onAdd
+        this.onUpdate = onUpdate
+        this.onDelete = onDelete
+    }
+
+    fun show(typeAction: TypeAction, id: Int) {
+        when (typeAction) {
+            TypeAction.INSERT -> onAdd(id, "Nuevo", "Pérez", "611000000")
+            TypeAction.UPDATE -> onUpdate(id, "CAMBIADO", "Cambiado", "699999999")
+            TypeAction.DELETE -> onDelete(id)
+        }
+    }
+}
